@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>NLP summarization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+            src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+<div class="bg-gray-900 min-h-screen">
+    <div class="flex">
+        <div class="w-1/2 h-full bg-white rounded-lg shadow dark:border md:mt-20 ml-5 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <form class="mx-auto" hx-disabled-elt="button" hx-post="/process_text" hx-target="#output_text">
+                    <img alt="Result loading..."
+                         class="htmx-indicator fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+                         src="/static/img/infinite-spinner.svg"
+                         width="75"/>
+                    <div class="mt-5 mb-5 w-full">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="text_in">Input
+                            text</label>
+                        <textarea
+                                class="h-80 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                id="text_in" name="text"
+                        >{{ input_text }}</textarea>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="mb-5 mr-10 w-24">
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   for="sentences_count">Sentences count</label>
+                            <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                   id="sentences_count" min="0"
+                                   name="sentences_count"
+                                   step="1"
+                                   type="number"
+                                   value="5"
+                            />
+                        </div>
+                        <button class="w-full h-10 mt-6 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                type="submit">
+                            Preprocess text
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="w-1/2 max-h-full bg-white rounded-lg shadow dark:border md:mt-20 ml-5 mr-5 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <div class="w-full mt-5" id="output_text">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Output text</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

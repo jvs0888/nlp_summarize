@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>NLP summarization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+            src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+<div class="bg-gray-900 min-h-screen flex flex-col justify-center items-center">
+    <div class="flex flex-col sm:flex-row justify-center items-center text-center sm:text-left">
+        <div class="mb-8 mt-5 sm:mb-0 sm:mr-8 ml-20">
+            <h1 class="text-5xl sm:text-8xl font-light text-blue-200 leading-tight">
+                NATURAL
+            </h1>
+            <h1 class="text-5xl sm:text-8xl font-light text-blue-300 leading-tight">
+                LANGUAGE
+            </h1>
+            <h1 class="text-5xl sm:text-8xl font-light text-blue-400 leading-tight">
+                PROCESSING
+            </h1>
+            <h1 class="text-5xl sm:text-5xl font-thin text-blue-500 leading-tight tracking-widest">
+                text summarizing
+            </h1>
+            <div class="ml-40 mt-10 flex justify-center items-center">
+                <a class="h-10 w-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                   href="/summarization">
+                    Get started!
+                </a>
+            </div>
+        </div>
+        <div class="mb-8 sm:mb-0 mr-0 ml-0">
+            <img alt="image description"
+                 class="w-full h-auto sm:max-w-none"
+                 src="{{ url_for('static', path='/img/nlp.png') }}">
+        </div>
+    </div>
+</div>
+</body>
+</html>
